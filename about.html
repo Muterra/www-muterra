@@ -1,0 +1,139 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="initial-scale=1.0">
+  <!-- I originally used a tool called Macaw to generate this, but tbh 
+  I'm really disappointed in it. It definitely didn't save me any time. 
+  It was a little helpful with the responsive stuff, but for being 
+  billed as the "code-savvy design tool", I was suprised how shit it 
+  was. I was constantly fighting against it; half the time I'd move 
+  around the layout and changes would cascade, half of the time they 
+  wouldn't. Backgrounds were hella buggy and didn't work responsively. 
+  Everything... Just very messy, very difficult to use, unenjoyable. For
+  the time being, I'm throwing on a bunch of bandaids, until I have time
+  to distill this into a proper layout and template for static site 
+  generation. On the to-do list certainly, but low priority. -->
+  <title>muterra</title>
+  <link href="https://fonts.googleapis.com/css?family=Merriweather+Sans:400,800,400,300,700" rel="stylesheet" type="text/css">
+  <link rel="stylesheet" href="css/standardize.css">
+  <link rel="stylesheet" href="css/about.css">
+  <style>
+    .v-algn-parent {
+      -webkit-transform-style: preserve-3d;
+      -moz-transform-style: preserve-3d;
+      transform-style: preserve-3d;
+    }  
+    .v-algn-child {
+      position: relative;
+      top: 50%;
+      transform: translateY(-50%);
+      -webkit-transform: translateY(-50%);
+      -moz-transform: translateY(-50%);
+    }  
+    .whitewash {
+      fill: #dedede;
+    }
+  </style>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+    <script>
+    $(document).ready(function(){
+      $("#nav-expander").click(function(){
+        if ($("#navbar").position().left < 0) {
+          $("#navbar").animate({left: "0px", top: "0px"});
+        }
+        else {
+          $("#navbar").animate({left: "-120px", top: "-225px"});
+        }
+      });
+      
+      var vars = [], hash;
+      var q = document.URL.split('?')[1];
+      if(q != undefined){
+        q = q.split('&');
+        for(var i = 0; i < q.length; i++){
+          hash = q[i].split('=');
+          vars.push(hash[1]);
+          vars[hash[0]] = hash[1];
+        }
+        if(vars['signup'] == 'thanks'){
+          $('#mc-embedded-subscribe-form').hide();
+          $('#mc-embedded-subscribe-form').css("height", 0);
+          $('#mc-embedded-thanks').show();
+          $('#mc-forminfo').text('Please check your email to confirm.');
+        } else if (vars['signup'] == 'confirmed'){
+          $('#mc-embedded-subscribe-form').hide();
+          $('#mc-embedded-subscribe-form').css("height", 0);
+          $('#mc-embedded-thanks').show();
+          $('#mc-embedded-thanks').text('Confirmed, thanks.');
+        }
+      }
+    });
+
+    $(window).on('resize', function(){
+      if ($(this).width() >= 500) {
+        $("#navbar").animate({left: "0px", top: "0px"}, 0);
+      }
+      else {
+        $("#navbar").animate({left: "-120px", top: "-225px"}, 0);
+      }
+    });
+  </script>
+  <link rel="apple-touch-icon" sizes="57x57" href="/apple-touch-icon-57x57.png">
+  <link rel="apple-touch-icon" sizes="60x60" href="/apple-touch-icon-60x60.png">
+  <link rel="apple-touch-icon" sizes="72x72" href="/apple-touch-icon-72x72.png">
+  <link rel="apple-touch-icon" sizes="76x76" href="/apple-touch-icon-76x76.png">
+  <link rel="apple-touch-icon" sizes="114x114" href="/apple-touch-icon-114x114.png">
+  <link rel="apple-touch-icon" sizes="120x120" href="/apple-touch-icon-120x120.png">
+  <link rel="apple-touch-icon" sizes="144x144" href="/apple-touch-icon-144x144.png">
+  <link rel="apple-touch-icon" sizes="152x152" href="/apple-touch-icon-152x152.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon-180x180.png">
+  <link rel="icon" type="image/png" href="/favicon-32x32.png" sizes="32x32">
+  <link rel="icon" type="image/png" href="/favicon-194x194.png" sizes="194x194">
+  <link rel="icon" type="image/png" href="/favicon-96x96.png" sizes="96x96">
+  <link rel="icon" type="image/png" href="/android-chrome-192x192.png" sizes="192x192">
+  <link rel="icon" type="image/png" href="/favicon-16x16.png" sizes="16x16">
+  <link rel="manifest" href="/manifest.json">
+  <meta name="msapplication-TileColor" content="#8a2a2b">
+  <meta name="msapplication-TileImage" content="/mstile-144x144.png">
+</head>
+<body class="body page-about clearfix">
+  <div id="header" class="body-row-red body-row-white body-container body-content-consume header header-1 clearfix">
+    <div id="mailchimp-validation" class="body-row-red body-row-white body-container body-content-consume wrapper wrapper-1"><!-- Begin MailChimp Signup Form validation -->
+<script type='text/javascript' src='//s3.amazonaws.com/downloads.mailchimp.com/js/mc-validate.js'></script>
+<script type='text/javascript'>(function($) {window.fnames = new Array(); window.ftypes = new Array();fnames[0]='EMAIL';ftypes[0]='email';fnames[1]='FNAME';ftypes[1]='text';fnames[2]='LNAME';ftypes[2]='text';}(jQuery));var $mcj = jQuery.noConflict(true);</script>
+<!-- End MailChimp Signup Form validation --></div>
+    <div class="body-row-red body-row-white body-container body-content-consume logo-big logo-big-1"></div>
+    <p class="body-row-red body-row-white body-container body-content-consume header-text header-text-1">About Muterra</p>
+    <div class="body-row-red body-row-white body-container body-content-consume header-after header-after-1"></div>
+  </div>
+  <div id="navbar" class="body-row-red body-row-white body-container body-content-consume navbar navbar-1 clearfix">
+    <a id="nav-expander" class="body-row-red body-row-white body-container body-content-consume expander expander-1" href="#">...</a>
+    <a href="/" class="body-row-red body-row-white body-container body-content-consume text text-1">Muterra</a>
+    <a href="https://github.com/Muterra/muse-doc" class="text text-2">Learn</a>
+    <a href="/about.html" class="text text-2">About</a>
+    <a href="https://github.com/muterra" class="body-row-red body-row-white body-container body-content-consume text text-4">Get Started</a>
+  </div>
+  <div class="body-row-red body-row-white body-container body-content-consume body-row-red body-row-red-1">
+    <div id="element-ID" class="body-row-red body-row-white body-container body-content-consume body-container v-algn-parent body-container-1 clearfix">
+      <div class="body-row-red body-row-white body-container body-content-consume body-content column-full body-content-1 clearfix">
+        <h2 class="body-row-red body-row-white body-container body-content-consume body-text body-text-1">Muterra gives individuals total power over their data.</h2>
+        <p class="body-row-red body-row-white body-container body-content-consume body-text body-text-2">Muterra's Mesh-Made-Muse started as a social network built on privacy, but consensual information control is a much bigger issue than "just another social app", so we refocused the Muse on giving people real and meaningful self-determinacy on the internet as a whole. We use privacy-by-default to address core technical shortcomings of the web. Despite this ambitious goal, Muterra is currently a one-man team.<br></p>
+      </div>
+    </div>
+  </div>
+  <div class="body-row-banner body-row-banner-1">
+    <div class="body-banner-after body-banner-after-1"></div>
+    <div class="body-container body-container-2 clearfix">
+      <div id="div-badg-text" class="body-content-consume clearfix">
+        <p class="body-text body-text-3">Nick Badger has an exceptionally eclectic background - ranging from robots to theatre to emergency medecine to cars. He is largely self-taught when it comes to tech, but make no mistake: Nick has a knack for complex systems and is constantly pushing for their improvement.</p>
+        <p class="text text-5">All inquiries should contact Nick at <a href="mailto:badg@muterra.io">badg@muterra.io</a>.</div>
+      </div>
+    </div>
+  </div>
+  <div class="body-row-red body-row-white body-container body-content-consume footer footer-1 clearfix">
+    <a href="https://github.com/muterra" id="github-button" class="body-row-red body-row-white body-container body-content-consume social-circle social-circle-1"></a>
+    <p class="body-row-red body-row-white body-container body-content-consume copyright copyright-1">© Muterra, Inc. All rights reserved.</p>
+  </div>
+</body>
+</html>
