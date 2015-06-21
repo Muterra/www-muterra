@@ -490,3 +490,47 @@ img {
   -moz-box-sizing: border-box;
   box-sizing: border-box;
 }
+
+.social-buttons {
+  display: block;
+  float: left;
+  width: 100%;
+  padding-top: 5px;
+  margin: 33px 0 0 0;  
+  text-align: center;
+}
+
+#github-button {
+  background-image: url('/resources/github_logo.svg');
+}
+
+#twitter-button {
+  background-image: url('/resources/twitter_logo.svg');
+}
+
+.social-circle-1 {
+  display: inline-block;
+  width: 45px;
+  height: 45px;
+  margin-left: 25px;
+  margin-right: 25px;
+  border-radius: 25px;
+  background: rgb(138, 42, 43);
+  background-repeat: no-repeat;
+  background-size: 55% 55%;
+  background-position: center center;
+  -webkit-transition: all .3s;
+  -moz-transition: all .3s;
+  -o-transition: all .3s;
+  -ms-transition: all .3s;
+  transition: all .3s;
+}
+
+.social-circle-1:hover {
+  box-shadow: 0 7px 12px 2px rgba(0, 0, 0, .5);
+  -webkit-transform: translateY(-10px);
+  -moz-transform: translateY(-10px);
+  -o-transform: translateY(-10px);
+  -ms-transform: translateY(-10px);
+  transform: translateY(-10px);
+}
