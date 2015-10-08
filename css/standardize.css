@@ -859,5 +859,5 @@ p.bold {
   margin-top: 25%;
   height: 50%;
   width: auto;
-  fill: white;
+  /*fill: white;*/
 }
