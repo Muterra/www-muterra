@@ -1,0 +1,375 @@
+<!DOCTYPE html>
+<html lang="en" prefix="og: http://ogp.me/ns#">
+<head>
+  <title>Muse technical primer | muterra</title>
+  
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<link rel="canonical" href="https://www.muterra.io/blog/muse-technical-primer.html">
+    <meta name="author" content="Nick Badger" />
+    <meta name="keywords" content="Muse,Implementation,Technical" />
+    <meta name="description" content="A technical introduction to the Muse protocol." />
+
+  <!-- Start OG -->
+    <meta property="og:site_name" content="muterra" />
+    <meta property="og:url" content="https://www.muterra.io/blog/muse-technical-primer.html"/>
+    <meta property="og:type" content="article"/>
+    <meta property="og:title" content="Muse technical primer"/>
+    <meta property="og:description" content="A technical introduction to the Muse protocol." />
+    <meta property="og:image" content="https://www.muterra.io/blog/images/social-paint.jpg"/>
+  <!-- End OG -->
+
+  <!-- Begin style links -->
+    <link href='https://fonts.googleapis.com/css?family=Roboto:400,400italic,700,700italic' rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" href="/css/normalize.css" type="text/css"/>
+    <link rel="stylesheet" href="/css/standardize.css" type="text/css"/>
+    <link rel="stylesheet" href="/css/blog.css" type="text/css"/>
+  <!-- End style links -->
+  
+  <!-- Scripts -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+    <script>
+      $(document).ready(function(){
+          // Finally, make the page appear (waiting eliminates flicker).
+          $("#page-container").delay(450).animate({opacity:1}, 200);
+        });
+    </script>
+  <!-- No more scripts -->
+
+  <!-- Begin feeds -->
+    <link href="/blog/feeds/all.atom.xml" type="application/atom+xml" rel="alternate"
+        title="muterra ATOM Feed"/>
+
+
+
+  <!-- End feeds -->
+    
+  <!-- Dirty fucking google analytics, but at least I don't have ad tracking on. -->
+  <script>
+    (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+    (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+    m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+    })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+    ga('create', 'UA-67619311-3', 'auto');
+    ga('send', 'pageview');
+  </script>
+  <!-- Hey man, gotta work with the system if you're to have a hope to change the system -->
+</head>
+<body class="body page-index clearfix">
+  <div id="coverfix"><div id="coverfix-bg"></div></div>
+  <div id="page-container" class="container-page clearfix" style="opacity: 0;">
+  
+    <!-- Begin top titular row -->
+    <div class="container-full color-inverted clearfix" id="titular">
+    </div>
+    <!-- End top titular row -->
+    
+    <!-- Begin navbär -->
+    <div id="navbar" class="container-full clearfix">
+      <div class="justifyfix">
+        <div class="navbar-container" id="navbar-home"><a href="/"><h1>muterra</h1></a></div>
+        <div class="navbar-container" id="navbar-blog"><a href="/blog/">blog</a></div>
+      </div>
+    </div>
+    <!-- End navbär -->
+    
+    <!-- Begin fill-subdued row -->
+    <div class="container-full fill-subdued transformfix" id="page-row">
+      <div id="content-column">
+      
+        <!-- Begin featured content -->
+        <div id="featured">
+            <div class="article-feature">
+              <div class="justifyfix">
+                <!-- Begin article datestamp -->
+                <div class="article-datestamp">
+                  <span class="published">
+                    <time datetime="2015-10-22T12:31:00-07:00" title="Thu 22 October 2015, 12:31 PDT"> 22 Oct 2015</time>
+                  </span>
+                </div>
+                <!-- End article datestamp -->
+                
+                <!-- Begin article category -->
+                <div class="article-category">
+                  <span>
+                    <a href="/blog/category/muse.html">Muse</a>
+                  </span>
+                </div>
+                <!-- End article category -->
+                
+                <!-- Begin article tagging -->
+                <div class="article-tagstamp">
+                  <ul>
+                    <li><a href="/blog/tag/muse.html">Muse</a></li>
+                    <li><a href="/blog/tag/implementation.html">Implementation</a></li>
+                    <li><a href="/blog/tag/technical.html">Technical</a></li>
+                  </ul>
+                </div>
+                <!-- End article tagging -->
+              </div>
+              
+              <!-- Begin title with permalink -->
+              <div class="article-title">
+                <span>
+                  <a href="/blog/muse-technical-primer.html" rel="bookmark" title="Permalink to Muse technical primer">Muse technical primer</a>
+                </span>
+              </div>
+              <!-- End title with permalink -->
+              
+              <!-- Begin author attribution -->
+              <!-- End author attribution -->
+              
+              <!-- Begin social image -->
+              <div class="article-cover_image">
+                <img src="/images/imgfix.png" style="background-image: url('/blog/images/social-paint.jpg');">
+              </div>
+              <!-- End social image -->
+              
+              <!-- Begin pdf, social links, etc -->
+              <div class="article-social_box">
+                <ul class="share">
+                  <li>
+                    <a class="social" id="email_link" href="mailto:?&body=I%20thought%20you%20might%20be%20interested%20in%20this%20article%3A%20https%3A//www.muterra.io/blog/muse-technical-primer.html" title="Share with email">
+                      <span>Email</span>
+                    </a>
+                  </li>
+                  <li>
+                    <a class="social" id="facebook_link" href="https://www.facebook.com/sharer/sharer.php?u=https%3A//www.muterra.io/blog/muse-technical-primer.html" title="Share on Facebook">
+                      <span>Facebook</span>
+                    </a>
+                  </li>
+                  <li>
+                    <a class="social" id="twitter_link" href="https://twitter.com/home?status=https%3A//www.muterra.io/blog/muse-technical-primer.html" title="Share on Twitter">
+                      <span>Twitter</span>
+                    </a>
+                  </li>
+                  <li>
+                    <a class="social" id="gplus_link" href="https://plus.google.com/share?url=https%3A//www.muterra.io/blog/muse-technical-primer.html" title="Share on Google+">
+                      <span>Google+</span>
+                    </a>
+                  </li>
+                </ul>
+                <ul class="follow" id="followbox-article">
+                  <li class="followbox-item" id="followbox-article-email">
+                      <!-- Begin actual form -->
+                      <form id="mc-form" action="//muterra.us11.list-manage.com/subscribe/post?u=657c50148ecaf8c628e366ecc&amp;id=7c46a4402e" method="post" class="clearfix">
+                        <div id="mc-forminfo" class="centered">
+                          <div id="mce-success-response"></div>
+                          <div id="mce-error-response"></div>
+                        </div>
+                        <div class="color-dark container-full show-overflow centered clearfix">
+                          <input type="email" id="mce-EMAIL" name="EMAIL" placeholder="name@email.com" class="centered">
+                        </div>
+                        <div style="position: absolute; left: -5000px;">
+                          <input type="text" name="b_657c50148ecaf8c628e366ecc_7c46a4402e" tabindex="-1" value="">
+                        </div>
+                        <div class="centered">
+                          <button id="mc-embedded-subscribe" type="submit">Subscribe</button>
+                        </div>
+                      </form>
+                      <!-- End actual form -->
+                  </li>
+                  <li class="followbox-item" id="followbox-article-feeds">
+                    <a href="/blog/feeds/all.atom.xml">
+                      <img src="/images/social-feeds.svg">
+                    </a>
+                  </li>
+                </ul>
+              </div>
+              <!-- End pdf, social links, etc -->
+              
+              <!-- Begin translations -->
+              <div class="article-translations">
+                
+              </div>
+              <!-- End translations -->
+              
+              <!-- Begin article summary -->
+              <div class="article-summary">
+                <p>A technical introduction to the Muse protocol.</p>
+              </div>
+              <!-- End article summary -->
+            </div>
+            
+</div>
+        <!-- End featured content -->
+    
+        <!-- Begin title -->
+        <div class="container-full clearfix" id="page-title">
+            
+        </div>
+        <!-- End title -->
+    
+        <!-- Begin blog content -->
+        <div id="content">
+        <div class="pelican-content clearfix" id="pelican-content">
+        <!-- BEGIN PELICAN-PARSED ARTICLE and frustrating noindent to preserve code blocks -->
+<h1>Keep it simple, stupid</h1>
+<p>Muse is a decentralized encrypted social media protocol.</p>
+<p>It is currently under development by <a href="https://www.muterra.io">Muterra, Inc</a>, co-evolving with the Ethyr social network.</p>
+<h2>Okay, too simple</h2>
+<p>Muse is an open, encrypted, and decentralized protocol for anything social. The goal is to consolidate and standardize all of the shared infrastructure that any new social application requires (content management, sharing management, and identity management). By doing that, we can minimize the barriers to creating new applications, while maximizing personal agency and privacy.</p>
+<p>Crucially, <strong>all operations on Muse are cryptographically enforced</strong>. The protocol eschews "privacy by promise" and opts instead to create a general-purpose, many-to-many encrypted network with asynchronous/offline retrieval and real-time capability. <strong>It does not require everyone to operate their own server</strong>, and nor does platform-based hosting compromise privacy or security for applications built on Muse.</p>
+<p>Like the Rust programming language, Muse aspires to be a <a href="http://blog.rust-lang.org/2015/05/11/traits.html">zero-cost abstraction</a>: what you don't use, you don't pay for; what you do use, you couldn't hand-code any better. Unlike previous federated social protocols (Diaspora, Tent, Hubzilla, etc), Muse operates at a highly-restricted abstraction: it produces authenticated, confidential, verified byte messages from arbitrary, insecure bytestream sources, but places no restrictions or specifications of what those messages might be.</p>
+<p>Quick technical overview:</p>
+<ol>
+<li>End-to-end symmetric encryption for all data, eliminating site-specific privacy concerns.</li>
+<li>A unified protocol interface for storing persistent objects on any network data host</li>
+<li>Asynchronous communication for the entire network, constructed using that storage protocol as a buffer</li>
+<li>Static and dynamic content-based addresses (muids) bound to individual data containers by any network participants</li>
+<li>Object deletion via garbage collection of any unreferenced containers</li>
+<li>Container key exchange through symmetric inter-agent API sessions initiated with asymmetric API handshakes</li>
+<li>Network "identity" definition through self-hosted public key infrastructure</li>
+</ol>
+<h2>How does Muse change things?</h2>
+<p>In short, Muse is an overlay network that encrypts everything <em>not just from device to device</em>, but from entity to entity. It readdresses communications directly between the participants' digital identities (essentially their public keys), instead of (for example) the IP addresses of their devices. The protocol implementation abstracts away data transport, so physical addresses are transparent to applications, making them free to focus on high-level concepts like "Paypal, tell Alice her account balance".</p>
+<p>We use the internet like this:</p>
+<div class="code_highlight"><pre>1. Bob sends Alice a message that they&#39;re out of toilet paper
+2. Alice tells Paypal to withdraw money from her bank account
+3. Paypal asks Alice&#39;s bank for money
+4. Alice&#39;s orders TP from Amazon
+</pre></div>
+
+
+<p>Alice, Bob, Paypal, Amazon, etc are all "agents" (they can independently manipulate data). The way we actually <em>use</em> the internet, then, is <em>agent-oriented</em>. However, networks only know how to talk like this: </p>
+<div class="code_highlight"><pre>1. 73.36.202.142 sends 88.41.145.167 &quot;we&#39;re out of toilet paper&quot;
+2. 88.41.145.167 sends (wwww.paypal.com = 66.211.169.66) &quot;withdraw money from Alice&#39;s bank account&quot;
+3. (wwww.paypal.com = 66.211.169.66) sends (www.wellsfargo.com = 159.45.2.145) &quot;withdraw money from Alice&#39;s account&quot;
+4. 88.41.145.167 sends (www.amazon.com = 72.21.206.6) &quot;Alice orders TP&quot;
+</pre></div>
+
+
+<p>Of course in reality, network infrastructure makes this <em>network-oriented</em> architecture even more convoluted, and since Alice and Bob both might want to be offline from time to time, we also end up using intermediaries like <code>(www.gmail.com = 173.194.33.149)</code> to send even the direct messages between the two agents.</p>
+<p>The Muse protocol sits on top of the <a href="https://en.wikipedia.org/wiki/Transport_layer">transport layer</a>, and below the <a href="https://en.wikipedia.org/wiki/Application_layer">application layer</a>. It translates Bob's application-level "send Alice a message" command into a format that the transport layer can deliver to Alice, regardless of what <code>123.123.123.123</code> location she's at. It does this by universally defining:</p>
+<ol>
+<li>How to keep data private</li>
+<li>How to store and transfer private data</li>
+<li>How Bob shares private data with Alice</li>
+<li>What, exactly, Bob means by "Alice"</li>
+</ol>
+<h1>Problem flow</h1>
+<p>This outlines, from first principles, in a very dense and hard-to-process way, the protocol design decisions that lead to the Muse. It is exceptionally brief and does not justify the answers we've arrived at. However, it does explain the protocol architecture pretty thoroughly.</p>
+<p><strong>Problem: create an asynchronous, agent-oriented, many-to-many overlay network. Solution: the Muse protocol.</strong></p>
+<ol>
+<li><strong>Problem:</strong> What is content? <strong>Solution:</strong> Content is any arbitrary binary data. All content is encapsulated within containers that assure confidentiality, integrity, and authenticity.<ol>
+<li><strong>Problem:</strong> How does an agent assure confidentiality? <strong>Solution:</strong> Encrypt the container content.<ol>
+<li><strong>Problem:</strong> How should content be encrypted? <strong>Solution:</strong> It's of arbitrary length, so definitely symmetrically (as per usual!)</li>
+<li><strong>Problem:</strong> How does another agent access the encrypted file in a many-to-many network? <strong>Solution:</strong> Use a <em>separate</em> key-sharing mechanism (see below).</li>
+</ol>
+</li>
+<li><strong>Problem:</strong> How does an agent assure integrity? <strong>Solution:</strong> They hash the encrypted container.</li>
+<li><strong>Problem:</strong> How does an agent assure authenticity? <strong>Solution:</strong> They asymmetrically sign the container hash.</li>
+<li><strong>Problem:</strong> How is the content identified on the network? <strong>Solution:</strong> All containers are deterministically and uniquely content-addressed. In other words, content is identified by a collision-resistant cryptographic hash.</li>
+<li><strong>Problem:</strong> How can this data be made asynchronously-available? <strong>Solution:</strong> Any Muse-implementing network requires a persistence system. These are transport-specific. A conformant physical network node stores data on agents' behalf(s). Nodes may also bridge between transport-specific Muse implementations to automatically sync network state between them. Uploading is implicit, and the persistence system must understand several commands defined within the Muse spec.<ol>
+<li><strong>Problem:</strong> What commands must a persistence system accept? <strong>Solution:</strong> Publish, get, subscribe, unsubscribe, ack, nak, list node subscriptions, list object binders.</li>
+<li><strong>Problem:</strong> How are these persistence systems standardized? <strong>Solution:</strong> Each particular transport mechanism defines its own overlay standard for command format.</li>
+</ol>
+</li>
+<li><strong>Problem:</strong> How does the persistence system know to retain data? <strong>Solution:</strong> Agents bind addresses to objects, reminiscent of a "call-by-assignment" programming language. Bindings may be created by any agent, regardless of data authorship. This prevents problematic deletion. Objects are always static, but bindings may also be dynamic (which creates a secondary address).<ol>
+<li><strong>Problem:</strong> How does the persistence system know when to remove data? <strong>Solution:</strong> When all bindings have been removed through "debind" commands, the persistence system garbage collects the object.</li>
+<li><strong>Problem:</strong> How can an author-agent remove undesired content that has been bound by a different agent? <strong>Solution:</strong> Binding records include the binder as public metadata. Persistence systems must include a command to list the agents who have bound to a particular piece of content. The author may then exert social/political/legal pressure on those binders for them to remove the binding.</li>
+</ol>
+</li>
+</ol>
+</li>
+<li><strong>Problem:</strong> What is sharing? <strong>Solution:</strong> An exchange of symmetric encryption keys.<ol>
+<li><strong>Problem:</strong> How is this accomplished in a many-to-many network? <strong>Solution:</strong> Separate the key exchange from the content itself. Content is uniquely and trivially addressable, and access is shared one-to-one between agents. Note that agents may be computational, so public information may be automatically shared across communities of any size.</li>
+<li><strong>Problem:</strong> How do you perform secure online key exchange? <strong>Solution:</strong> Initially, through a special asymmetrically-encrypted handshake object. These are distributed like any other Muse content, but contain a public reference to their agent-target. Unlike standard objects, their author is named privately, within the container body.</li>
+<li><strong>Problem:</strong> Doesn't this hinge on the secrecy of the target's asymmetric private key? Can we get forward secrecy, etc? <strong>Solution:</strong> Absolutely. The handshake object <em>could</em> be used directly for every key exchange, but that would be both insecure and inefficient. The preferred method is to use the handshake to bootstrap a dynamic bidirectional communication pipe between two agents, and then use that for key exchange. The API definition for that key exchange pipe is out-of-scope for Muse itself, but candidates will be defined within overlay standards. Because it is encapsulated within the Muse symmetric pipe, it can be any binary message format.</li>
+</ol>
+</li>
+<li><strong>Problem:</strong> What is an agent? <strong>Solution:</strong> An agent produces, accesses, shares, or retains content.<ol>
+<li><strong>Problem:</strong> An agent must be uniquely identifiable and network-available. <strong>Solution:</strong> Put the agent's entire identity within a single, standard content container on the network. These containers are themselves encrypted, so if the identity is public, it must then be bootstrapped (this process is defined in an overlay standard). Use their identity container's content address as their unique identifier.</li>
+<li><strong>Problem:</strong> The agent requires an asymmetric public key for signing content. <strong>Solution:</strong> Add that key to the container file.</li>
+<li><strong>Problem:</strong> The agent requires an asymmetric public key for receiving encrypted pipes. <strong>Solution:</strong> Add that key to the container file.</li>
+<li><strong>Problem:</strong> How does an agent invisibly (to external parties) transition to a new identity? <strong>Solution:</strong> Through a Diffie-Hellman-based identity exchange process.<ol>
+<li><strong>Problem:</strong> Can this transition be made selectively deniable? <strong>Solution:</strong> Yes, through clever sequencing of the exchange.</li>
+<li><strong>Problem:</strong> How does an agent perform this exchange online? <strong>Solution:</strong> The DHE public key must be made available at the time of identity creation, and is therefore stored with the rest of the identity's public keys (aka: add it to the container file).</li>
+</ol>
+</li>
+<li><strong>Problem:</strong> Agents are meant to exist independently of physical devices, so they need online private key storage. <strong>Solution:</strong> Out-of-scope, but defined within an overlay protocol.</li>
+<li><strong>Problem:</strong> How does the agent independently discover new content addresses? <strong>Solution:</strong> Out-of-scope.</li>
+</ol>
+</li>
+</ol>
+<h1>See also</h1>
+<p>Our <a href="https://github.com/Muterra/doc-muse">github repository for Muse documentation</a> has substantially more information. Of particular interest:</p>
+<ul>
+<li><a href="https://github.com/Muterra/doc-muse/blob/master/whitepaper.md">Whitepaper</a></li>
+<li><a href="https://github.com/Muterra/doc-muse/blob/master/design_philosophy.md">Design philosopy</a></li>
+<li><a href="https://github.com/Muterra/doc-muse/blob/master/yellowpaper.md">Yellowpaper</a></li>
+</ul>
+        <!-- END PELICAN-PARSED ARTICLE and frustrating noindent to preserve code blocks -->
+        </div>
+        <div class="nextupbox" id="nextupbox">
+          <em>Interested in more? Join our <a href="/mailing-signup.html">mailing list</a> or follow our <a href="/blog/feeds/all.atom.xml">atom feed</a> to see the latest Ethyr, Muse, or Muterra updates.</em>
+        </div>
+        </div>
+        <!-- End blog content -->
+        
+        <!-- Begin sidebar -->
+        <div id="sidebar">
+          
+          <!-- Begin sidebar links -->
+          <ul class="sidebar-list">
+            <li class="sidebar-recent">
+              <a href="/blog/archives.html">
+                <span class="sidebar-header sidebar-recent">Recent posts</span>
+              </a>
+              <ul class="sidebar-list-secondary" id="recentposts">
+                <li><a href="/blog/muse-technical-primer.html">Muse technical primer</a></li>
+                <li><a href="/blog/ycw2016.html">YC W2016 application</a></li>
+                <li><a href="/blog/muse-101.html">Muse overview</a></li>
+                <li><a href="/blog/status-2015-q3.html">Status report Q3 2015</a></li>
+              </ul>
+            </li>
+
+            <li class="sidebar-categories">
+              <a href="/blog/categories.html">
+                <span class="sidebar-header sidebar-categories">Categories</span>
+              </a>
+              <ul class="sidebar-list-secondary" id="categories">
+                <li><a href="/blog/category/muse.html">Muse</a></li>
+                <li><a href="/blog/category/overview.html">Overview</a></li>
+              </ul>
+            </li>
+
+            <li class="sidebar-tags">
+              <a href="/blog/tags.html">
+                <span class="sidebar-header sidebar-tags">Tags</span>
+              </a>
+              <ul class="sidebar-list-secondary" id="tags">
+                <li><a href="/blog/tag/ethyr.html">Ethyr</a></li>
+                <li><a href="/blog/tag/muterra.html">Muterra</a></li>
+                <li><a href="/blog/tag/technical.html">Technical</a></li>
+                <li><a href="/blog/tag/muse.html">Muse</a></li>
+                <li><a href="/blog/tag/implementation.html">Implementation</a></li>
+              </ul>
+            </li>
+          </ul>
+
+          <!-- End sidebar links -->
+        </div>
+        <!-- End sidebar -->
+        
+      </div>
+      <!-- End content column -->
+    </div>
+    <!-- End blog content row -->
+    
+    
+    <!-- Begin copyright footer -->
+    <div class="container-full padded-light fill-dark clearfix" id="footer">
+      <div class="centered clearfix">
+        <p class="copyright">© <a href="https://www.muterra.io">Muterra, Inc</a>. All rights reserved.</p>
+      </div>
+    </div>
+    <!-- End copyright footer -->
+  </div>
+  <!-- End the page container and add an offset for the pretty picture. -->
+  <div class="tail-offset"></div>
+</body>
+</html>

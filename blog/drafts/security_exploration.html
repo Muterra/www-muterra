@@ -1,0 +1,398 @@
+<!DOCTYPE html>
+<html lang="en" prefix="og: http://ogp.me/ns#">
+<head>
+  <title>Muse security overview | muterra</title>
+  
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<link rel="canonical" href="https://www.muterra.io/blog/drafts/security_exploration.html">
+    <meta name="author" content="Nick Badger" />
+    <meta name="keywords" content="Muse,Technical,Security" />
+    <meta name="description" content="An exploration of the security landscape of the Muse protocol. Beware: this is a long one." />
+
+  <!-- Start OG -->
+    <meta property="og:site_name" content="muterra" />
+    <meta property="og:url" content="https://www.muterra.io/blog/drafts/security_exploration.html"/>
+    <meta property="og:type" content="article"/>
+    <meta property="og:title" content="Muse security overview"/>
+    <meta property="og:description" content="An exploration of the security landscape of the Muse protocol. Beware: this is a long one." />
+    <meta property="og:image" content="https://www.muterra.io/blog/images/backdrop-test.jpg"/>
+  <!-- End OG -->
+
+  <!-- Begin style links -->
+    <link href='https://fonts.googleapis.com/css?family=Roboto:400,400italic,700,700italic' rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" href="/css/normalize.css" type="text/css"/>
+    <link rel="stylesheet" href="/css/standardize.css" type="text/css"/>
+    <link rel="stylesheet" href="/css/blog.css" type="text/css"/>
+  <!-- End style links -->
+  
+  <!-- Scripts -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+    <script>
+      $(document).ready(function(){
+          // Finally, make the page appear (waiting eliminates flicker).
+          $("#page-container").delay(450).animate({opacity:1}, 200);
+        });
+    </script>
+  <!-- No more scripts -->
+
+  <!-- Begin feeds -->
+    <link href="/blog/feeds/all.atom.xml" type="application/atom+xml" rel="alternate"
+        title="muterra ATOM Feed"/>
+
+
+
+  <!-- End feeds -->
+    
+  <!-- Dirty fucking google analytics, but at least I don't have ad tracking on. -->
+  <script>
+    (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+    (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+    m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+    })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+    ga('create', 'UA-67619311-3', 'auto');
+    ga('send', 'pageview');
+  </script>
+  <!-- Hey man, gotta work with the system if you're to have a hope to change the system -->
+</head>
+<body class="body page-index clearfix">
+  <div id="coverfix"><div id="coverfix-bg"></div></div>
+  <div id="page-container" class="container-page clearfix" style="opacity: 0;">
+  
+    <!-- Begin top titular row -->
+    <div class="container-full color-inverted clearfix" id="titular">
+    </div>
+    <!-- End top titular row -->
+    
+    <!-- Begin navbär -->
+    <div id="navbar" class="container-full clearfix">
+      <div class="justifyfix">
+        <div class="navbar-container" id="navbar-home"><a href="/"><h1>muterra</h1></a></div>
+        <div class="navbar-container" id="navbar-blog"><a href="/blog/">blog</a></div>
+      </div>
+    </div>
+    <!-- End navbär -->
+    
+    <!-- Begin fill-subdued row -->
+    <div class="container-full fill-subdued transformfix" id="page-row">
+      <div id="content-column">
+      
+        <!-- Begin featured content -->
+        <div id="featured">
+            <div class="article-feature">
+              <div class="justifyfix">
+                <!-- Begin article datestamp -->
+                <div class="article-datestamp">
+                  <span class="published">
+                    <time datetime="2015-10-06T15:20:00-07:00" title="Tue 06 October 2015, 15:20 PDT"> 06 Oct 2015</time>
+                  </span>
+                </div>
+                <!-- End article datestamp -->
+                
+                <!-- Begin article category -->
+                <div class="article-category">
+                  <span>
+                    <a href="/blog/category/muse.html">Muse</a>
+                  </span>
+                </div>
+                <!-- End article category -->
+                
+                <!-- Begin article tagging -->
+                <div class="article-tagstamp">
+                  <ul>
+                    <li><a href="/blog/tag/muse.html">Muse</a></li>
+                    <li><a href="/blog/tag/technical.html">Technical</a></li>
+                    <li><a href="/blog/tag/security.html">Security</a></li>
+                  </ul>
+                </div>
+                <!-- End article tagging -->
+              </div>
+              
+              <!-- Begin title with permalink -->
+              <div class="article-title">
+                <span>
+                  <a href="/blog/drafts/security_exploration.html" rel="bookmark" title="Permalink to Muse security overview">Muse security overview</a>
+                </span>
+              </div>
+              <!-- End title with permalink -->
+              
+              <!-- Begin author attribution -->
+              <!-- End author attribution -->
+              
+              <!-- Begin social image -->
+              <div class="article-cover_image">
+                <img src="/images/imgfix.png" style="background-image: url('/blog/images/backdrop-test.jpg');">
+              </div>
+              <!-- End social image -->
+              
+              <!-- Begin pdf, social links, etc -->
+              <div class="article-social_box">
+                <ul class="share">
+                  <li>
+                    <a class="social" id="email_link" href="mailto:?&body=I%20thought%20you%20might%20be%20interested%20in%20this%20article%3A%20https%3A//www.muterra.io/blog/drafts/security_exploration.html" title="Share with email">
+                      <span>Email</span>
+                    </a>
+                  </li>
+                  <li>
+                    <a class="social" id="facebook_link" href="https://www.facebook.com/sharer/sharer.php?u=https%3A//www.muterra.io/blog/drafts/security_exploration.html" title="Share on Facebook">
+                      <span>Facebook</span>
+                    </a>
+                  </li>
+                  <li>
+                    <a class="social" id="twitter_link" href="https://twitter.com/home?status=https%3A//www.muterra.io/blog/drafts/security_exploration.html" title="Share on Twitter">
+                      <span>Twitter</span>
+                    </a>
+                  </li>
+                  <li>
+                    <a class="social" id="gplus_link" href="https://plus.google.com/share?url=https%3A//www.muterra.io/blog/drafts/security_exploration.html" title="Share on Google+">
+                      <span>Google+</span>
+                    </a>
+                  </li>
+                </ul>
+                <ul class="follow" id="followbox-article">
+                  <li class="followbox-item" id="followbox-article-email">
+                      <!-- Begin actual form -->
+                      <form id="mc-form" action="//muterra.us11.list-manage.com/subscribe/post?u=657c50148ecaf8c628e366ecc&amp;id=7c46a4402e" method="post" class="clearfix">
+                        <div id="mc-forminfo" class="centered">
+                          <div id="mce-success-response"></div>
+                          <div id="mce-error-response"></div>
+                        </div>
+                        <div class="color-dark container-full show-overflow centered clearfix">
+                          <input type="email" id="mce-EMAIL" name="EMAIL" placeholder="name@email.com" class="centered">
+                        </div>
+                        <div style="position: absolute; left: -5000px;">
+                          <input type="text" name="b_657c50148ecaf8c628e366ecc_7c46a4402e" tabindex="-1" value="">
+                        </div>
+                        <div class="centered">
+                          <button id="mc-embedded-subscribe" type="submit">Subscribe</button>
+                        </div>
+                      </form>
+                      <!-- End actual form -->
+                  </li>
+                  <li class="followbox-item" id="followbox-article-feeds">
+                    <a href="/blog/feeds/all.atom.xml">
+                      <img src="/images/social-feeds.svg">
+                    </a>
+                  </li>
+                </ul>
+              </div>
+              <!-- End pdf, social links, etc -->
+              
+              <!-- Begin translations -->
+              <div class="article-translations">
+                
+              </div>
+              <!-- End translations -->
+              
+              <!-- Begin article summary -->
+              <div class="article-summary">
+                <p>An exploration of the security landscape of the Muse protocol. Beware: this is a long one.</p>
+              </div>
+              <!-- End article summary -->
+            </div>
+            
+</div>
+        <!-- End featured content -->
+    
+        <!-- Begin title -->
+        <div class="container-full clearfix" id="page-title">
+            
+        </div>
+        <!-- End title -->
+    
+        <!-- Begin blog content -->
+        <div id="content">
+        <div class="pelican-content clearfix" id="pelican-content">
+        <!-- BEGIN PELICAN-PARSED ARTICLE and frustrating noindent to preserve code blocks -->
+<h1>Muse security overview</h1>
+<p><strong>Core assumption:</strong> a user will always log in when starting a session on a device and log out when ending the session. The logged-in state corresponds exactly to physical device use, and multiple users do not use devices concurrently.</p>
+<div class="code_highlight"><pre>+ A fundamental difference: the muse wholly separates message delivery and encryption from key sharing. They aren&#39;t just handled by different code, they are capable of being handled by entirely different protocols.
++ In so doing, keysharing can always be 1:1, while message distribution can be 1:many.
++ Uncomfortable truths
+    + Once you share with someone, you can&#39;t control what they do with the information
+</pre></div>
+
+
+<p>A whole-system private container solution is required for storing static, message-based, transmissible data at rest. The data repository is a single, flat, content-addressed directory -- conceptually speaking, a hash table. For the sake of cryptographic understanding, files are never deleted. Duplicate file insertions are therefore only meaningful in the context of transmission timing attacks, which, though important, are outside the scope of this discussion.</p>
+<p>This system should be fully self-hosting, and therefore requires an authenticatable (though not necessarily legally verifiable) digital identity system. Such authentication should be non-repudiable; however, identities should be considered potentially disposable, and a mechanism to deniably prove identity transitions is desirable. To facilitate system usability, these digital identities should themselves be stored on the system, and therefore within encrypted containers.</p>
+<p>Finally, a key sharing mechanism must be established for access sharing between identities. It should have the capability, but not requirement, to initiate persistent keysharing sessions between identities. It should maintain forward security in the event of an identity compromise, though the circumstances of the identity compromise may imply a simultaneous compromise of message keys (if, for example, both the identity private keys and the individual message keys were externally encrypted and stored with the same master key).</p>
+<p>Neither OTR, PGP, nor TLS fulfill these requirements, so we propose a new cryptosystem that does.</p>
+<h1>Container definitions</h1>
+<p>The following four encrypted primitives are proposed:</p>
+<ol>
+<li>Symmetrically-encrypted, authenticated container for arbitrary objects</li>
+<li>Asymmetrically-encrypted, authenticated container for key exchange handshakes</li>
+<li>Asymmetrically-encrypted, authenticated container for handshake ACKs</li>
+<li>Asymmetrically-encrypted, authenticated container for handshake NAKs</li>
+</ol>
+<p>Additionally, the following three network support primitives are proposed:</p>
+<ol>
+<li>Unencrypted, authenticated static address binding</li>
+<li>Unencrypted, authenticated dynamic address binding</li>
+<li>Unencrypted, authenticated address binding removal</li>
+</ol>
+<h1>Common header</h1>
+<p>All seven primitives share a common header, in the following order:</p>
+<table>
+<thead>
+<tr>
+<th>Field name</th>
+<th>Field quick reference</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Magic number</td>
+<td>Classifies the object as one of the above seven primitives.</td>
+</tr>
+<tr>
+<td>Version</td>
+<td>Primitive-specific specification version number.</td>
+</tr>
+<tr>
+<td>Address algorithm</td>
+<td>Describes which hash algorithm should be used for content-based addressing.</td>
+</tr>
+<tr>
+<td>File hash</td>
+<td>The hash digest of the file.</td>
+</tr>
+<tr>
+<td>Cipher suite</td>
+<td>Describes which of the available cipher suites should be used for cryptographic operations</td>
+</tr>
+<tr>
+<td>Addressee muid</td>
+<td>A unique identifier for the identity of the primitive's addressee</td>
+</tr>
+<tr>
+<td>Author signature</td>
+<td>Authenticates the primitive's authorship (not necessarily its addressee)</td>
+</tr>
+</tbody>
+</table>
+<h3>Magic number</h3>
+<p>Primitive-specific and used to unequivocally identify the primitive type. Could currently be inferred from the file itself (no two primitives are functionally interchangeable). Included in the file hash.</p>
+<h3>Version</h3>
+<p>Primitive-specific, ciphersuite-independent semantic version number used to support future protocol revisions. Included in the file hash.</p>
+<h3>Address algorithm</h3>
+<p>Integer-based specification of the hash algorithm used for primitive addressing. This is redundantly declared (the cipher suite declaration supersedes this field and includes specification of the hash algorithm), but any inconsistencies between file hash and cipher suite shall result in a rejected primitive. It is included to benefit network efficiency. It is excluded from the file hash.</p>
+<p>Currently-supported address algorithms, by integer representation:</p>
+<ol>
+<li><strong>0x1:</strong> SHA-512.</li>
+</ol>
+<h3>File hash</h3>
+<p>The hash digest of the file. Used for both addressing (address algorithm concatenated with the file hash results in the Muse unique identifier, or muid), and for signature-based authentication. Is constructed from the following elements in the following order, with no padding or delimiters:</p>
+<ol>
+<li>Magic number</li>
+<li>Version</li>
+<li>Addressee muid</li>
+<li>File remainder (all bytes following the author signature)</li>
+</ol>
+<h3>Cipher suite</h3>
+<p>Integer-based specification of the file's cipher suite. Supersedes and redundantly specifies the address algorithm. Disagreement between the two fields will be implemented with full file rejection.</p>
+<p>Currently-supported cipher suites, by integer representation:</p>
+<h4><strong>0x1:</strong> SHA512/AES256/RSA4096.</h4>
+<ul>
+<li><strong>Address algorithm:</strong> 0x1 = SHA-512.</li>
+<li><strong>Signature:</strong> RSASSA-PSS, MGF1+SHA512, public exponent 65537. </li>
+<li><strong>Asymmetric encryption:</strong> RSAES-OAEP, MGF1+SHA512, public exponent 65537. </li>
+<li><strong>Symmetric encryption:</strong> AES-256 in CTR mode, with nonce prepended to payload ciphertext, with deterministic nonce generation (as described below).</li>
+<li><strong>Diffie-Hellman deniable exchange:</strong> 2048-bit <a href="http://www.ietf.org/rfc/rfc3526.txt">Group #14</a> with a generator of 2.</li>
+</ul>
+<h4>Deterministic nonce generation</h4>
+<p>CTR block mode requires counter generation to produce a unique seed for each block to avoid a repeating pad. This incrementing seed is typically implemented as a nonce, which is then concatenated with the actual counter. This nonce is often constructed from randomness, but it need not be: it must simply not be reused for any given key (or counter state must be preserved between messages, which is generally impractical).</p>
+<p>There are three core arguments for a non-random nonce. First, as the ciphertext will affect the content-derived address, it is desirable (though not required) that the same plaintext + key combination should always result in the same ciphertext. Second, forcing a deterministic nonce may actually reduce the risk of catastrophic nonce + key combination reuse in implementation code written by cryptographically inexperienced developers, by ensuring that any given nonce + key combination can only result from identical plaintext (and therefore identical ciphertext). Third, because of the overall system structure, recreation of an identical file (from the same plaintext + key combination) should affect the system's security footprint primarily through slightly increased exposure to external timing attacks.</p>
+<p>One weakness of this system is that a common message used by multiple authors could potentially subject that message to statistical analysis if multiple authors use the same key. As such, this reasoning is based upon the assumption that keys should be sufficiently long and sufficiently random to prevent accidental key collisions. Furthermore, because the nonce must exist prior to encryption, if it is to be deterministically generated from the plaintext, it should be constructed in such a way that it cannot leak information about the plaintext, even if the underlying content digest generation is found to be insecure.</p>
+<p>The proposed method of deterministic nonce generation is to hash the plaintext, then encrypt a single block of that hash with the base key, using the result as the nonce for CTR mode (and reusing the base key to generate the keystream). In addition to the above, this has the desirable properties of:</p>
+<ul>
+<li>Collision resistance</li>
+<li>Pseudo-randomized plaintext for the block cipher, minimizing information leak from the nonce even if the counter is implemented incorrectly</li>
+</ul>
+<h3>Addressee muid</h3>
+<p>The unique identifier for the primitive's addressee. For symmetric files, this is the primitive's author. For asymmetric files, this is the primitive's recipient (against whose public key the asymmetric file is encrypted). This muid can be used to look up the identity file for the addressee. It is the single piece of public metadata in primitives, and included in the file hash. As such, a malicious modification by an attacker (or even the original author) must result in a different file.</p>
+<h3>Author signature</h3>
+<p>Provides the authentication assurance for the file by the author. For symmetric files, it is simply the signature of the file hash (<em>not the muid</em>). For asymmetric files, to protect the relationship between author and recipient against a dictionary attack, it is the signature of the file hash XORd with an asymmetrically-encrypted "inner salt".</p>
+<h1>System concerns</h1>
+<h2>Balancing non-repudiation and deniability</h2>
+<p>In a publishable (ie potentially one-to-many) format, both non-repudiation and deniability can be desirable qualities. The Muse protocol system supports both, through the creation of ephemeral identities. Commmunications authored by any given identity are non-repudiable, but temporary identities may be created ad-hoc. Here, a DH shared secret can be used to deniably prove original identity to the conversation partner. For added privacy, this exchange can be done with a third identity (which is then immediately disposed).</p>
+<hr />
+<p>Particular concerns:</p>
+<p>Signature key vs public encryption key: should the signature key for API generation (which is being encrypted asymmetrically against someone else's public key) be the public encryption key (ie, API generation uses all a single set of keys, and then all symmetric messages are signed with the other), or would it be better this way? The former is a bit more complex but I think is a better division of security concerns (the ability to generate a new API channel is roughly equivalent to an ephemeral key exchange, which means the signature on that exchange is more important than that on symmetric object files).</p>
+<p>Deterministic nonce generation. Good idea or bad idea?</p>
+<p>Any way to improve forgeability of temporary identities?</p>
+<p>Symmetric is potentially one-to-many, BUT handshake generation is always one-to-one. Could use a DH -&gt; KDF -&gt; MAC signature there, but it would come at the cost of protocol complexity. However, it WOULD eliminate the awkward step of xoring the inner hash and nonce with the rest of it. YES, DO THIS. IT ALSO PROVIDES DOS MITIGATION. THIS IS A VERY GOOD IDEA.</p>
+        <!-- END PELICAN-PARSED ARTICLE and frustrating noindent to preserve code blocks -->
+        </div>
+        <div class="nextupbox" id="nextupbox">
+          <em>Interested in more? Join our <a href="/mailing-signup.html">mailing list</a> or follow our <a href="/blog/feeds/all.atom.xml">atom feed</a> to see the latest Ethyr, Muse, or Muterra updates.</em>
+        </div>
+        </div>
+        <!-- End blog content -->
+        
+        <!-- Begin sidebar -->
+        <div id="sidebar">
+          
+          <!-- Begin sidebar links -->
+          <ul class="sidebar-list">
+            <li class="sidebar-recent">
+              <a href="/blog/archives.html">
+                <span class="sidebar-header sidebar-recent">Recent posts</span>
+              </a>
+              <ul class="sidebar-list-secondary" id="recentposts">
+                <li><a href="/blog/muse-technical-primer.html">Muse technical primer</a></li>
+                <li><a href="/blog/ycw2016.html">YC W2016 application</a></li>
+                <li><a href="/blog/muse-101.html">Muse overview</a></li>
+                <li><a href="/blog/status-2015-q3.html">Status report Q3 2015</a></li>
+              </ul>
+            </li>
+
+            <li class="sidebar-categories">
+              <a href="/blog/categories.html">
+                <span class="sidebar-header sidebar-categories">Categories</span>
+              </a>
+              <ul class="sidebar-list-secondary" id="categories">
+                <li><a href="/blog/category/muse.html">Muse</a></li>
+                <li><a href="/blog/category/overview.html">Overview</a></li>
+              </ul>
+            </li>
+
+            <li class="sidebar-tags">
+              <a href="/blog/tags.html">
+                <span class="sidebar-header sidebar-tags">Tags</span>
+              </a>
+              <ul class="sidebar-list-secondary" id="tags">
+                <li><a href="/blog/tag/ethyr.html">Ethyr</a></li>
+                <li><a href="/blog/tag/muterra.html">Muterra</a></li>
+                <li><a href="/blog/tag/technical.html">Technical</a></li>
+                <li><a href="/blog/tag/muse.html">Muse</a></li>
+                <li><a href="/blog/tag/implementation.html">Implementation</a></li>
+              </ul>
+            </li>
+          </ul>
+
+          <!-- End sidebar links -->
+        </div>
+        <!-- End sidebar -->
+        
+      </div>
+      <!-- End content column -->
+    </div>
+    <!-- End blog content row -->
+    
+    
+    <!-- Begin copyright footer -->
+    <div class="container-full padded-light fill-dark clearfix" id="footer">
+      <div class="centered clearfix">
+        <p class="copyright">© <a href="https://www.muterra.io">Muterra, Inc</a>. All rights reserved.</p>
+      </div>
+    </div>
+    <!-- End copyright footer -->
+  </div>
+  <!-- End the page container and add an offset for the pretty picture. -->
+  <div class="tail-offset"></div>
+</body>
+</html>
