@@ -9,7 +9,7 @@
 
 <link rel="canonical" href="https://www.muterra.io/blog/status-2015-q3.html">
     <meta name="author" content="Nick Badger" />
-    <meta name="keywords" content="Ethyr,Muterra,Muse" />
+    <meta name="keywords" content="Ethyr,Muterra,Golix" />
     <meta name="description" content="The project&#39;s current status as of the close of Quarter 3, 2015. Effectively the beginning of everything." />
 
   <!-- Start OG -->
@@ -105,7 +105,7 @@
                   <ul>
                     <li><a href="/blog/tag/ethyr.html">Ethyr</a></li>
                     <li><a href="/blog/tag/muterra.html">Muterra</a></li>
-                    <li><a href="/blog/tag/muse.html">Muse</a></li>
+                    <li><a href="/blog/tag/golix.html">Golix</a></li>
                   </ul>
                 </div>
                 <!-- End article tagging -->
@@ -207,7 +207,7 @@
         <div id="content">
         <div class="pelican-content clearfix" id="pelican-content">
         <!-- BEGIN PELICAN-PARSED ARTICLE and frustrating noindent to preserve code blocks -->
-<p>As explained in the <a href="/blog/landscape-101.html">project introduction page</a>, Ethyr has three major aspects: its protocol (Muse), its application (Ethyr itself), and its supporting company (Muterra). This section is a brief overview of their respective statuses as of the beginning of October 2015.</p>
+<p>As explained in the <a href="/blog/landscape-101.html">project introduction page</a>, Ethyr has three major aspects: its protocol (Golix), its application (Ethyr itself), and its supporting company (Muterra). This section is a brief overview of their respective statuses as of the beginning of October 2015.</p>
 <h1>Muterra</h1>
 <p>Muterra, Inc is registered as a Delaware C Corporation, headquartered in Oakland, CA. It is currently a one-man shop (that's me, Nick Badger), though I have spoken with a friend about him possibly coming on board. That discussion is fairly early on and pending a bunch of (primarily financial) milestones on my end. </p>
 <p>On 4 September I left my previous position to focus on this project full-time. The timing was right for a variety of reasons, but everything was very much in its infancy. Muterra.io had a (very amateurish) landing webpage, and though I would guess I had compiled between 100 and 200 pages of notes by this point, I had very little to show for it.</p>
@@ -249,9 +249,9 @@
 <li>Start talking about their existence.</li>
 <li>Square away some internal details (streamline records, clean up server pipeline, etc).</li>
 </ol>
-<h1>Muse</h1>
-<p>As of 4 September 2015, the Muse protocol was at a serviceable draft level of completion: far enough along that I was comfortable writing prototype implementation software, but still nowhere near version 1.0. I had already written some preliminary experimental code of previous protocol versions, and they showed promise. </p>
-<p>Very little has changed with the protocol in the month since then. It is still <a href="https://github.com/Muterra/doc-muse/tree/4402f99d3b9a5c3ab404875c16a33b0ce9e546ab">severely under-documented</a>, though expanding and updating existing documentation, leading up to a security review, is the next step.</p>
+<h1>Golix</h1>
+<p>As of 4 September 2015, the Golix protocol was at a serviceable draft level of completion: far enough along that I was comfortable writing prototype implementation software, but still nowhere near version 1.0. I had already written some preliminary experimental code of previous protocol versions, and they showed promise. </p>
+<p>Very little has changed with the protocol in the month since then. It is still <a href="https://github.com/Muterra/doc-golix/tree/4402f99d3b9a5c3ab404875c16a33b0ce9e546ab">severely under-documented</a>, though expanding and updating existing documentation, leading up to a security review, is the next step.</p>
 <p>At a very high level, the protocol is currently intended to convert a</p>
 <ol>
 <li>data transport network</li>
@@ -264,7 +264,7 @@
 <li>capable of authenticated, confidential, verifiably intact binary message transmission</li>
 <li>between abstract network <em>participants</em>.</li>
 </ol>
-<p>The protocol operates at a fairly low level and defines a series of "encrypted information container" (EIC) file/message formats that support:</p>
+<p>The protocol operates at a fairly low level and defines a series of object containers and network administration object formats that support:</p>
 <ul>
 <li>"Private by default" information</li>
 <li>One-to-any communications</li>
@@ -272,7 +272,7 @@
 <li>Digital identity management</li>
 <li>Information sharing management</li>
 </ul>
-<p>Additionally, there are two work-in-progress Muse Overlay Standards proposals that outline:</p>
+<p>Additionally, there are two work-in-progress Golix Overlay Standards proposals that outline:</p>
 <ul>
 <li>A common public identity storage format</li>
 <li>A common private identity key storage format</li>
@@ -323,8 +323,8 @@
 <p>I'm happy to report that the learning curves have mostly subsided, and I can quite easily add new posts to a blog that I don't totally hate. There's definitely room for improvement, but given my limited supply of man-hours, I've shifted my priorities elsewhere.</p>
         <!-- END PELICAN-PARSED ARTICLE and frustrating noindent to preserve code blocks -->
         <hr>
-        <p>This post is a follow-up to <a href="/blog/landscape-101.html">Ethyr, Muse, and Muterra</a>.</p>
-        <p>Up next: an <a href="/blog/muse-101.html">introduction to the Muse protocol</a>.</p>
+        <p>This post is a follow-up to <a href="/blog/landscape-101.html">Ethyr, Golix, and Muterra</a>.</p>
+        <p>Up next: an <a href="/blog/muse-101.html">introduction to the Golix protocol</a>.</p>
         </div>
         <div class="nextupbox" id="nextupbox">
           <em>Interested in more? Join our <a href="/mailing-signup.html">mailing list</a> or follow our <a href="/blog/feeds/all.atom.xml">atom feed</a> to see the latest Ethyr, Muse, or Muterra updates.</em>
@@ -342,9 +342,9 @@
                 <span class="sidebar-header sidebar-recent">Recent posts</span>
               </a>
               <ul class="sidebar-list-secondary" id="recentposts">
-                <li><a href="/blog/muse-technical-primer.html">Muse technical primer</a></li>
+                <li><a href="/blog/muse-technical-primer.html">Golix technical primer</a></li>
                 <li><a href="/blog/ycw2016.html">YC W2016 application</a></li>
-                <li><a href="/blog/muse-101.html">Muse overview</a></li>
+                <li><a href="/blog/muse-101.html">Golix overview</a></li>
                 <li><a href="/blog/status-2015-q3.html">Status report Q3 2015</a></li>
               </ul>
             </li>
@@ -354,7 +354,7 @@
                 <span class="sidebar-header sidebar-categories">Categories</span>
               </a>
               <ul class="sidebar-list-secondary" id="categories">
-                <li><a href="/blog/category/muse.html">Muse</a></li>
+                <li><a href="/blog/category/golix.html">Golix</a></li>
                 <li><a href="/blog/category/overview.html">Overview</a></li>
               </ul>
             </li>
@@ -364,11 +364,11 @@
                 <span class="sidebar-header sidebar-tags">Tags</span>
               </a>
               <ul class="sidebar-list-secondary" id="tags">
-                <li><a href="/blog/tag/ethyr.html">Ethyr</a></li>
-                <li><a href="/blog/tag/muterra.html">Muterra</a></li>
-                <li><a href="/blog/tag/technical.html">Technical</a></li>
-                <li><a href="/blog/tag/muse.html">Muse</a></li>
                 <li><a href="/blog/tag/implementation.html">Implementation</a></li>
+                <li><a href="/blog/tag/ethyr.html">Ethyr</a></li>
+                <li><a href="/blog/tag/golix.html">Golix</a></li>
+                <li><a href="/blog/tag/technical.html">Technical</a></li>
+                <li><a href="/blog/tag/muterra.html">Muterra</a></li>
               </ul>
             </li>
           </ul>

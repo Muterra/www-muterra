@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en" prefix="og: http://ogp.me/ns#">
 <head>
-  <title>Muse technical primer | muterra</title>
+  <title>Golix technical primer | muterra</title>
   
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta charset="utf-8">
@@ -9,15 +9,15 @@
 
 <link rel="canonical" href="https://www.muterra.io/blog/muse-technical-primer.html">
     <meta name="author" content="Nick Badger" />
-    <meta name="keywords" content="Muse,Implementation,Technical" />
-    <meta name="description" content="A technical introduction to the Muse protocol." />
+    <meta name="keywords" content="Golix,Implementation,Technical" />
+    <meta name="description" content="A technical introduction to the Golix protocol." />
 
   <!-- Start OG -->
     <meta property="og:site_name" content="muterra" />
     <meta property="og:url" content="https://www.muterra.io/blog/muse-technical-primer.html"/>
     <meta property="og:type" content="article"/>
-    <meta property="og:title" content="Muse technical primer"/>
-    <meta property="og:description" content="A technical introduction to the Muse protocol." />
+    <meta property="og:title" content="Golix technical primer"/>
+    <meta property="og:description" content="A technical introduction to the Golix protocol." />
     <meta property="og:image" content="https://www.muterra.io/blog/images/social-paint.jpg"/>
   <!-- End OG -->
 
@@ -95,7 +95,7 @@
                 <!-- Begin article category -->
                 <div class="article-category">
                   <span>
-                    <a href="/blog/category/muse.html">Muse</a>
+                    <a href="/blog/category/golix.html">Golix</a>
                   </span>
                 </div>
                 <!-- End article category -->
@@ -103,7 +103,7 @@
                 <!-- Begin article tagging -->
                 <div class="article-tagstamp">
                   <ul>
-                    <li><a href="/blog/tag/muse.html">Muse</a></li>
+                    <li><a href="/blog/tag/golix.html">Golix</a></li>
                     <li><a href="/blog/tag/implementation.html">Implementation</a></li>
                     <li><a href="/blog/tag/technical.html">Technical</a></li>
                   </ul>
@@ -114,7 +114,7 @@
               <!-- Begin title with permalink -->
               <div class="article-title">
                 <span>
-                  <a href="/blog/muse-technical-primer.html" rel="bookmark" title="Permalink to Muse technical primer">Muse technical primer</a>
+                  <a href="/blog/muse-technical-primer.html" rel="bookmark" title="Permalink to Golix technical primer">Golix technical primer</a>
                 </span>
               </div>
               <!-- End title with permalink -->
@@ -189,7 +189,7 @@
               
               <!-- Begin article summary -->
               <div class="article-summary">
-                <p>A technical introduction to the Muse protocol.</p>
+                <p>A technical introduction to the Golix protocol.</p>
               </div>
               <!-- End article summary -->
             </div>
@@ -208,24 +208,24 @@
         <div class="pelican-content clearfix" id="pelican-content">
         <!-- BEGIN PELICAN-PARSED ARTICLE and frustrating noindent to preserve code blocks -->
 <h1>Keep it simple, stupid</h1>
-<p>Muse is a decentralized encrypted social media protocol.</p>
+<p>Golix is a decentralized encrypted social media protocol.</p>
 <p>It is currently under development by <a href="https://www.muterra.io">Muterra, Inc</a>, co-evolving with the Ethyr social network.</p>
 <h2>Okay, too simple</h2>
-<p>Muse is an open, encrypted, and decentralized protocol for anything social. The goal is to consolidate and standardize all of the shared infrastructure that any new social application requires (content management, sharing management, and identity management). By doing that, we can minimize the barriers to creating new applications, while maximizing personal agency and privacy.</p>
-<p>Crucially, <strong>all operations on Muse are cryptographically enforced</strong>. The protocol eschews "privacy by promise" and opts instead to create a general-purpose, many-to-many encrypted network with asynchronous/offline retrieval and real-time capability. <strong>It does not require everyone to operate their own server</strong>, and nor does platform-based hosting compromise privacy or security for applications built on Muse.</p>
-<p>Like the Rust programming language, Muse aspires to be a <a href="http://blog.rust-lang.org/2015/05/11/traits.html">zero-cost abstraction</a>: what you don't use, you don't pay for; what you do use, you couldn't hand-code any better. Unlike previous federated social protocols (Diaspora, Tent, Hubzilla, etc), Muse operates at a highly-restricted abstraction: it produces authenticated, confidential, verified byte messages from arbitrary, insecure bytestream sources, but places no restrictions or specifications of what those messages might be.</p>
+<p>Golix is an open, encrypted, and decentralized protocol for anything social. The goal is to consolidate and standardize all of the shared infrastructure that any new social application requires (content management, sharing management, and identity management). By doing that, we can minimize the barriers to creating new applications, while maximizing personal agency and privacy.</p>
+<p>Crucially, <strong>all operations on Golix are cryptographically enforced</strong>. The protocol eschews "privacy by promise" and opts instead to create a general-purpose, many-to-many encrypted network with asynchronous/offline retrieval and real-time capability. <strong>It does not require everyone to operate their own server</strong>, and nor does platform-based hosting compromise privacy or security for applications built on Golix.</p>
+<p>Like the Rust programming language, Golix aspires to be a <a href="http://blog.rust-lang.org/2015/05/11/traits.html">zero-cost abstraction</a>: what you don't use, you don't pay for; what you do use, you couldn't hand-code any better. Unlike previous federated social protocols (Diaspora, Tent, Hubzilla, etc), Golix operates at a highly-restricted abstraction: it produces authenticated, confidential, verified byte messages from arbitrary, insecure bytestream sources, but places no restrictions or specifications of what those messages might be.</p>
 <p>Quick technical overview:</p>
 <ol>
 <li>End-to-end symmetric encryption for all data, eliminating site-specific privacy concerns.</li>
 <li>A unified protocol interface for storing persistent objects on any network data host</li>
 <li>Asynchronous communication for the entire network, constructed using that storage protocol as a buffer</li>
-<li>Static and dynamic content-based addresses (muids) bound to individual data containers by any network participants</li>
+<li>Static and dynamic content-based addresses (GUIDs) bound to individual data containers by any network participants</li>
 <li>Object deletion via garbage collection of any unreferenced containers</li>
 <li>Container key exchange through symmetric inter-agent API sessions initiated with asymmetric API handshakes</li>
 <li>Network "identity" definition through self-hosted public key infrastructure</li>
 </ol>
-<h2>How does Muse change things?</h2>
-<p>In short, Muse is an overlay network that encrypts everything <em>not just from device to device</em>, but from entity to entity. It readdresses communications directly between the participants' digital identities (essentially their public keys), instead of (for example) the IP addresses of their devices. The protocol implementation abstracts away data transport, so physical addresses are transparent to applications, making them free to focus on high-level concepts like "Paypal, tell Alice her account balance".</p>
+<h2>How does Golix change things?</h2>
+<p>In short, Golix is an overlay network that encrypts everything <em>not just from device to device</em>, but from entity to entity. It readdresses communications directly between the participants' digital identities (essentially their public keys), instead of (for example) the IP addresses of their devices. The protocol implementation abstracts away data transport, so physical addresses are transparent to applications, making them free to focus on high-level concepts like "Paypal, tell Alice her account balance".</p>
 <p>We use the internet like this:</p>
 <div class="code_highlight"><pre>1. Bob sends Alice a message that they&#39;re out of toilet paper
 2. Alice tells Paypal to withdraw money from her bank account
@@ -243,7 +243,7 @@
 
 
 <p>Of course in reality, network infrastructure makes this <em>network-oriented</em> architecture even more convoluted, and since Alice and Bob both might want to be offline from time to time, we also end up using intermediaries like <code>(www.gmail.com = 173.194.33.149)</code> to send even the direct messages between the two agents.</p>
-<p>The Muse protocol sits on top of the <a href="https://en.wikipedia.org/wiki/Transport_layer">transport layer</a>, and below the <a href="https://en.wikipedia.org/wiki/Application_layer">application layer</a>. It translates Bob's application-level "send Alice a message" command into a format that the transport layer can deliver to Alice, regardless of what <code>123.123.123.123</code> location she's at. It does this by universally defining:</p>
+<p>The Golix protocol sits on top of the <a href="https://en.wikipedia.org/wiki/Transport_layer">transport layer</a>, and below the <a href="https://en.wikipedia.org/wiki/Application_layer">application layer</a>. It translates Bob's application-level "send Alice a message" command into a format that the transport layer can deliver to Alice, regardless of what <code>123.123.123.123</code> location she's at. It does this by universally defining:</p>
 <ol>
 <li>How to keep data private</li>
 <li>How to store and transfer private data</li>
@@ -251,8 +251,8 @@
 <li>What, exactly, Bob means by "Alice"</li>
 </ol>
 <h1>Problem flow</h1>
-<p>This outlines, from first principles, in a very dense and hard-to-process way, the protocol design decisions that lead to the Muse. It is exceptionally brief and does not justify the answers we've arrived at. However, it does explain the protocol architecture pretty thoroughly.</p>
-<p><strong>Problem: create an asynchronous, agent-oriented, many-to-many overlay network. Solution: the Muse protocol.</strong></p>
+<p>This outlines, from first principles, in a very dense and hard-to-process way, the protocol design decisions that lead to the Golix. It is exceptionally brief and does not justify the answers we've arrived at. However, it does explain the protocol architecture pretty thoroughly.</p>
+<p><strong>Problem: create an asynchronous, agent-oriented, many-to-many overlay network. Solution: the Golix protocol.</strong></p>
 <ol>
 <li><strong>Problem:</strong> What is content? <strong>Solution:</strong> Content is any arbitrary binary data. All content is encapsulated within containers that assure confidentiality, integrity, and authenticity.<ol>
 <li><strong>Problem:</strong> How does an agent assure confidentiality? <strong>Solution:</strong> Encrypt the container content.<ol>
@@ -263,7 +263,7 @@
 <li><strong>Problem:</strong> How does an agent assure integrity? <strong>Solution:</strong> They hash the encrypted container.</li>
 <li><strong>Problem:</strong> How does an agent assure authenticity? <strong>Solution:</strong> They asymmetrically sign the container hash.</li>
 <li><strong>Problem:</strong> How is the content identified on the network? <strong>Solution:</strong> All containers are deterministically and uniquely content-addressed. In other words, content is identified by a collision-resistant cryptographic hash.</li>
-<li><strong>Problem:</strong> How can this data be made asynchronously-available? <strong>Solution:</strong> Any Muse-implementing network requires a persistence system. These are transport-specific. A conformant physical network node stores data on agents' behalf(s). Nodes may also bridge between transport-specific Muse implementations to automatically sync network state between them. Uploading is implicit, and the persistence system must understand several commands defined within the Muse spec.<ol>
+<li><strong>Problem:</strong> How can this data be made asynchronously-available? <strong>Solution:</strong> Any Golix-implementing network requires a persistence system. These are transport-specific. A conformant physical network node stores data on agents' behalf(s). Nodes may also bridge between transport-specific Golix implementations to automatically sync network state between them. Uploading is implicit, and the persistence system must understand several commands defined within the Golix spec.<ol>
 <li><strong>Problem:</strong> What commands must a persistence system accept? <strong>Solution:</strong> Publish, get, subscribe, unsubscribe, ack, nak, list node subscriptions, list object binders.</li>
 <li><strong>Problem:</strong> How are these persistence systems standardized? <strong>Solution:</strong> Each particular transport mechanism defines its own overlay standard for command format.</li>
 </ol>
@@ -277,8 +277,8 @@
 </li>
 <li><strong>Problem:</strong> What is sharing? <strong>Solution:</strong> An exchange of symmetric encryption keys.<ol>
 <li><strong>Problem:</strong> How is this accomplished in a many-to-many network? <strong>Solution:</strong> Separate the key exchange from the content itself. Content is uniquely and trivially addressable, and access is shared one-to-one between agents. Note that agents may be computational, so public information may be automatically shared across communities of any size.</li>
-<li><strong>Problem:</strong> How do you perform secure online key exchange? <strong>Solution:</strong> Initially, through a special asymmetrically-encrypted handshake object. These are distributed like any other Muse content, but contain a public reference to their agent-target. Unlike standard objects, their author is named privately, within the container body.</li>
-<li><strong>Problem:</strong> Doesn't this hinge on the secrecy of the target's asymmetric private key? Can we get forward secrecy, etc? <strong>Solution:</strong> Absolutely. The handshake object <em>could</em> be used directly for every key exchange, but that would be both insecure and inefficient. The preferred method is to use the handshake to bootstrap a dynamic bidirectional communication pipe between two agents, and then use that for key exchange. The API definition for that key exchange pipe is out-of-scope for Muse itself, but candidates will be defined within overlay standards. Because it is encapsulated within the Muse symmetric pipe, it can be any binary message format.</li>
+<li><strong>Problem:</strong> How do you perform secure online key exchange? <strong>Solution:</strong> Initially, through a special asymmetrically-encrypted handshake object. These are distributed like any other Golix content, but contain a public reference to their agent-target. Unlike standard objects, their author is named privately, within the container body.</li>
+<li><strong>Problem:</strong> Doesn't this hinge on the secrecy of the target's asymmetric private key? Can we get forward secrecy, etc? <strong>Solution:</strong> Absolutely. The handshake object <em>could</em> be used directly for every key exchange, but that would be both insecure and inefficient. The preferred method is to use the handshake to bootstrap a dynamic bidirectional communication pipe between two agents, and then use that for key exchange. The API definition for that key exchange pipe is out-of-scope for Golix itself, but candidates will be defined within overlay standards. Because it is encapsulated within the Golix symmetric pipe, it can be any binary message format.</li>
 </ol>
 </li>
 <li><strong>Problem:</strong> What is an agent? <strong>Solution:</strong> An agent produces, accesses, shares, or retains content.<ol>
@@ -296,11 +296,11 @@
 </li>
 </ol>
 <h1>See also</h1>
-<p>Our <a href="https://github.com/Muterra/doc-muse">github repository for Muse documentation</a> has substantially more information. Of particular interest:</p>
+<p>Our <a href="https://github.com/Muterra/doc-golix">github repository for Golix documentation</a> has substantially more information. Of particular interest:</p>
 <ul>
-<li><a href="https://github.com/Muterra/doc-muse/blob/master/whitepaper.md">Whitepaper</a></li>
-<li><a href="https://github.com/Muterra/doc-muse/blob/master/design_philosophy.md">Design philosopy</a></li>
-<li><a href="https://github.com/Muterra/doc-muse/blob/master/yellowpaper.md">Yellowpaper</a></li>
+<li><a href="https://github.com/Muterra/doc-golix/blob/master/whitepaper.md">Whitepaper</a></li>
+<li><a href="https://github.com/Muterra/doc-golix/blob/master/design_philosophy.md">Design philosopy</a></li>
+<li><a href="https://github.com/Muterra/doc-golix/blob/master/yellowpaper.md">Yellowpaper</a></li>
 </ul>
         <!-- END PELICAN-PARSED ARTICLE and frustrating noindent to preserve code blocks -->
         </div>
@@ -320,9 +320,9 @@
                 <span class="sidebar-header sidebar-recent">Recent posts</span>
               </a>
               <ul class="sidebar-list-secondary" id="recentposts">
-                <li><a href="/blog/muse-technical-primer.html">Muse technical primer</a></li>
+                <li><a href="/blog/muse-technical-primer.html">Golix technical primer</a></li>
                 <li><a href="/blog/ycw2016.html">YC W2016 application</a></li>
-                <li><a href="/blog/muse-101.html">Muse overview</a></li>
+                <li><a href="/blog/muse-101.html">Golix overview</a></li>
                 <li><a href="/blog/status-2015-q3.html">Status report Q3 2015</a></li>
               </ul>
             </li>
@@ -332,7 +332,7 @@
                 <span class="sidebar-header sidebar-categories">Categories</span>
               </a>
               <ul class="sidebar-list-secondary" id="categories">
-                <li><a href="/blog/category/muse.html">Muse</a></li>
+                <li><a href="/blog/category/golix.html">Golix</a></li>
                 <li><a href="/blog/category/overview.html">Overview</a></li>
               </ul>
             </li>
@@ -342,11 +342,11 @@
                 <span class="sidebar-header sidebar-tags">Tags</span>
               </a>
               <ul class="sidebar-list-secondary" id="tags">
-                <li><a href="/blog/tag/ethyr.html">Ethyr</a></li>
-                <li><a href="/blog/tag/muterra.html">Muterra</a></li>
-                <li><a href="/blog/tag/technical.html">Technical</a></li>
-                <li><a href="/blog/tag/muse.html">Muse</a></li>
                 <li><a href="/blog/tag/implementation.html">Implementation</a></li>
+                <li><a href="/blog/tag/ethyr.html">Ethyr</a></li>
+                <li><a href="/blog/tag/golix.html">Golix</a></li>
+                <li><a href="/blog/tag/technical.html">Technical</a></li>
+                <li><a href="/blog/tag/muterra.html">Muterra</a></li>
               </ul>
             </li>
           </ul>

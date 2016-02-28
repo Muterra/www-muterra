@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en" prefix="og: http://ogp.me/ns#">
 <head>
-  <title>Muse overview | muterra</title>
+  <title>Golix overview | muterra</title>
   
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta charset="utf-8">
@@ -9,15 +9,15 @@
 
 <link rel="canonical" href="https://www.muterra.io/blog/muse-101.html">
     <meta name="author" content="Nick Badger" />
-    <meta name="keywords" content="Muse,Technical,Implementation" />
-    <meta name="description" content="A high-level overview of the Muse protocol. Where it&#39;s focused, what it&#39;s intended to do, and a quick note on why it&#39;s relevant." />
+    <meta name="keywords" content="Golix,Technical,Implementation" />
+    <meta name="description" content="A high-level overview of the Golix protocol. Where it&#39;s focused, what it&#39;s intended to do, and a quick note on why it&#39;s relevant." />
 
   <!-- Start OG -->
     <meta property="og:site_name" content="muterra" />
     <meta property="og:url" content="https://www.muterra.io/blog/muse-101.html"/>
     <meta property="og:type" content="article"/>
-    <meta property="og:title" content="Muse overview"/>
-    <meta property="og:description" content="A high-level overview of the Muse protocol. Where it&#39;s focused, what it&#39;s intended to do, and a quick note on why it&#39;s relevant." />
+    <meta property="og:title" content="Golix overview"/>
+    <meta property="og:description" content="A high-level overview of the Golix protocol. Where it&#39;s focused, what it&#39;s intended to do, and a quick note on why it&#39;s relevant." />
     <meta property="og:image" content="https://www.muterra.io/blog/images/social-overbeach.jpg"/>
   <!-- End OG -->
 
@@ -95,7 +95,7 @@
                 <!-- Begin article category -->
                 <div class="article-category">
                   <span>
-                    <a href="/blog/category/muse.html">Muse</a>
+                    <a href="/blog/category/golix.html">Golix</a>
                   </span>
                 </div>
                 <!-- End article category -->
@@ -103,7 +103,7 @@
                 <!-- Begin article tagging -->
                 <div class="article-tagstamp">
                   <ul>
-                    <li><a href="/blog/tag/muse.html">Muse</a></li>
+                    <li><a href="/blog/tag/golix.html">Golix</a></li>
                     <li><a href="/blog/tag/technical.html">Technical</a></li>
                     <li><a href="/blog/tag/implementation.html">Implementation</a></li>
                   </ul>
@@ -114,7 +114,7 @@
               <!-- Begin title with permalink -->
               <div class="article-title">
                 <span>
-                  <a href="/blog/muse-101.html" rel="bookmark" title="Permalink to Muse overview">Muse overview</a>
+                  <a href="/blog/muse-101.html" rel="bookmark" title="Permalink to Golix overview">Golix overview</a>
                 </span>
               </div>
               <!-- End title with permalink -->
@@ -189,7 +189,7 @@
               
               <!-- Begin article summary -->
               <div class="article-summary">
-                <p>A high-level overview of the Muse protocol. Where it's focused, what it's intended to do, and a quick note on why it's relevant.</p>
+                <p>A high-level overview of the Golix protocol. Where it's focused, what it's intended to do, and a quick note on why it's relevant.</p>
               </div>
               <!-- End article summary -->
             </div>
@@ -207,16 +207,16 @@
         <div id="content">
         <div class="pelican-content clearfix" id="pelican-content">
         <!-- BEGIN PELICAN-PARSED ARTICLE and frustrating noindent to preserve code blocks -->
-<p>Though this blog is primarily focused on Ethyr, the Muse protocol is the technical meat and bones of this project. It is Ethyr's primary innovation and Muterra's core technology. As such, this blog is also a convenient place to talk about the protocol itself. What follows is a brief exploration thereof.</p>
-<h2>Muse</h2>
-<p>The abstract intent of the Muse protocol is deceptively simple. Imagine you've created some digital work: a quick text explanation of a project you're working on, for example. Now you'd like to share it with someone. Muse is designed to handle the sharing step as directly as possible, without requiring websites as middlemen - all while still ensuring that only your intended recipient(s) have access to the data. The goal is to make the actual process of sharing something as simple and exact as it seems it should be.</p>
-<p>It's worth noting that this bears a large resemblance to email in the early 2000's, when it was already quite popular, but most people only had a single address. If you wanted to share something with someone digitally, you sent them an email. It was easy and effective. But email (at least as we usually see it) is severely limited: it's <a href="https://en.wikipedia.org/wiki/Email#Privacy_concerns">wholly insecure</a>, incompatible with <a href="https://en.wikipedia.org/wiki/Many-to-many">publication</a>, slow, and awkward for everything except text. In contrast, Muse behaves like a modernized version of <a href="https://en.wikipedia.org/wiki/Simple_Mail_Transfer_Protocol">SMTP</a>: it's encrypted, supports publicly-viewable data, is real-time capable, and works for any and all digital information.</p>
-<p>In other words, imagine a new version of email designed specifically for encrypted social networking. That means one-to-any support at a protocol level: you can "address" the "message" to any number of people, even the general public, or nobody. Muse accomplishes this by separating message delivery into the discrete concerns of <a href="https://en.wikipedia.org/wiki/Persistent_memory">persistence</a> and sharing. The message itself is encrypted at all times, and it can be "delivered" without a trusted server, because access sharing takes place directly between network participants. Note that, as participants may not have a 1-to-1 relationship with devices, this is a subtly different consideration than traditional <a href="https://en.wikipedia.org/wiki/End-to-end_encryption">end-to-end encryption</a>. And unlike email, Muse is not strictly an internet protocol: it is designed to work with any data connection between network peers. Muse is therefore not only capable of fluid transition to alternative network infrastructure (for example, a <a href="http://www.bluetooth.com/Pages/Press-Releases-Detail.aspx?ItemID=224">Bluetooth mesh network</a>), but also fully compatible with existing technologies like Websockets or WebRTC. And also unlike email, with its clumsy binary -&gt; text -&gt; ascii-armor transition for binary attachments, Muse is a natively binary protocol.</p>
+<p>Though this blog is primarily focused on Ethyr, the Golix protocol is the technical meat and bones of this project. It is Ethyr's primary innovation and Muterra's core technology. As such, this blog is also a convenient place to talk about the protocol itself. What follows is a brief exploration thereof.</p>
+<h2>Golix</h2>
+<p>The abstract intent of the Golix protocol is deceptively simple. Imagine you've created some digital work: a quick text explanation of a project you're working on, for example. Now you'd like to share it with someone. Golix is designed to handle the sharing step as directly as possible, without requiring websites as middlemen - all while still ensuring that only your intended recipient(s) have access to the data. The goal is to make the actual process of sharing something as simple and exact as it seems it should be.</p>
+<p>It's worth noting that this bears a large resemblance to email in the early 2000's, when it was already quite popular, but most people only had a single address. If you wanted to share something with someone digitally, you sent them an email. It was easy and effective. But email (at least as we usually see it) is severely limited: it's <a href="https://en.wikipedia.org/wiki/Email#Privacy_concerns">wholly insecure</a>, incompatible with <a href="https://en.wikipedia.org/wiki/Many-to-many">publication</a>, slow, and awkward for everything except text. In contrast, Golix behaves like a modernized version of <a href="https://en.wikipedia.org/wiki/Simple_Mail_Transfer_Protocol">SMTP</a>: it's encrypted, supports publicly-viewable data, is real-time capable, and works for any and all digital information.</p>
+<p>In other words, imagine a new version of email designed specifically for encrypted social networking. That means one-to-any support at a protocol level: you can "address" the "message" to any number of people, even the general public, or nobody. Golix accomplishes this by separating message delivery into the discrete concerns of <a href="https://en.wikipedia.org/wiki/Persistent_memory">persistence</a> and sharing. The message itself is encrypted at all times, and it can be "delivered" without a trusted server, because access sharing takes place directly between network participants. Note that, as participants may not have a 1-to-1 relationship with devices, this is a subtly different consideration than traditional <a href="https://en.wikipedia.org/wiki/End-to-end_encryption">end-to-end encryption</a>. And unlike email, Golix is not strictly an internet protocol: it is designed to work with any data connection between network peers. Golix is therefore not only capable of fluid transition to alternative network infrastructure (for example, a <a href="http://www.bluetooth.com/Pages/Press-Releases-Detail.aspx?ItemID=224">Bluetooth mesh network</a>), but also fully compatible with existing technologies like Websockets or WebRTC. And also unlike email, with its clumsy binary -&gt; text -&gt; ascii-armor transition for binary attachments, Golix is a natively binary protocol.</p>
 <h2>Protocol goals</h2>
-<p>Before discussing protocol technical requirements, I'd like to stress a few key points. Muse is a <strong>protocol</strong>: not a platform, not a product. To use it, someone needs to write a protocol implementation. Though Muse is an openly-published protocol, implementations may be closed source. Furthermore, though the Muse <em>protocol</em> is not married to any one data transport technology, Muse <em>implementations</em> likely will be. Part of the hope here is to free social applications from data transport concerns and make them wholly network agnostic (and vice versa); this approach requires the implementations themselves to exclusively handle physical data delivery, and the applications to only handle information use. </p>
-<p>This greatly simplifies network innovation and enables application-independent, seamless transition between <a href="https://en.wikipedia.org/wiki/Internet_protocol_suite">various</a> <a href="https://en.wikipedia.org/wiki/Tor_%28anonymity_network%29">different</a> <a href="https://en.wikipedia.org/wiki/Private_network">networking</a> <a href="https://en.wikipedia.org/wiki/MaidSafe">technologies</a>. However, it also begets an important caveat: Muse's security is always beholden to the underlying transport layer. It is up to that transport layer and its Muse implementation to address network-level security risks, such as traffic analysis or hard IP address anonymity.</p>
-<p>At the other end of the Muse abstraction, the protocol also has limits. Though it stresses granting network <a href="https://en.wikipedia.org/wiki/Agency_%28philosophy%29">agency</a> to abstract digital "identities" instead of concrete physical devices, Muse does not concern itself with the specifics of those identities. They are the <a href="https://en.wikipedia.org/wiki/Key_exchange">absolute minimum that is technically required by the protocol</a>, and do not offer any inherent assertion or identity ownership. Such verification requirements are always application-specific, so the Muse protocol deliberately avoids them. All Muse-based applications may make use of any Muse identity, regardless of (or contingent upon) any identity verification. Storage container formats (even for Muse primitives like identity <a href="https://en.wikipedia.org/wiki/Public-key_cryptography">public keys</a>) are similarly out-of-scope; standardizing core implementation functionality will be independently approached with Muse overlay standards proposals.</p>
-<p>That being said, any application making use of any Muse implementation can expect:</p>
+<p>Before discussing protocol technical requirements, I'd like to stress a few key points. Golix is a <strong>protocol</strong>: not a platform, not a product. To use it, someone needs to write a protocol implementation. Though Golix is an openly-published protocol, implementations may be closed source. Furthermore, though the Golix <em>protocol</em> is not married to any one data transport technology, Golix <em>implementations</em> likely will be. Part of the hope here is to free social applications from data transport concerns and make them wholly network agnostic (and vice versa); this approach requires the implementations themselves to exclusively handle physical data delivery, and the applications to only handle information use. </p>
+<p>This greatly simplifies network innovation and enables application-independent, seamless transition between <a href="https://en.wikipedia.org/wiki/Internet_protocol_suite">various</a> <a href="https://en.wikipedia.org/wiki/Tor_%28anonymity_network%29">different</a> <a href="https://en.wikipedia.org/wiki/Private_network">networking</a> <a href="https://en.wikipedia.org/wiki/MaidSafe">technologies</a>. However, it also begets an important caveat: Golix's security is always beholden to the underlying transport layer. It is up to that transport layer and its Golix implementation to address network-level security risks, such as traffic analysis or hard IP address anonymity.</p>
+<p>At the other end of the Golix abstraction, the protocol also has limits. Though it stresses granting network <a href="https://en.wikipedia.org/wiki/Agency_%28philosophy%29">agency</a> to abstract digital "identities" instead of concrete physical devices, Golix does not concern itself with the specifics of those identities. They are the <a href="https://en.wikipedia.org/wiki/Key_exchange">absolute minimum that is technically required by the protocol</a>, and do not offer any inherent assertion or identity ownership. Such verification requirements are always application-specific, so the Golix protocol deliberately avoids them. All Golix-based applications may make use of any Golix identity, regardless of (or contingent upon) any identity verification. Storage container formats (even for Golix primitives like identity <a href="https://en.wikipedia.org/wiki/Public-key_cryptography">public keys</a>) are similarly out-of-scope; standardizing core implementation functionality will be independently approached with Golix overlay standards proposals.</p>
+<p>That being said, any application making use of any Golix implementation can expect:</p>
 <ol>
 <li>Private, encrypted information transfer directly between explicitly-addressed parties with no trusted third party, over</li>
 <li>An <a href="https://en.wikipedia.org/wiki/Asynchronous_communication#Electronically_mediated_communication">asynchronously</a>-available <a href="https://en.wikipedia.org/wiki/Persistent_memory">persistence system</a> with indefinite storage capability, using</li>
@@ -245,9 +245,9 @@
                 <span class="sidebar-header sidebar-recent">Recent posts</span>
               </a>
               <ul class="sidebar-list-secondary" id="recentposts">
-                <li><a href="/blog/muse-technical-primer.html">Muse technical primer</a></li>
+                <li><a href="/blog/muse-technical-primer.html">Golix technical primer</a></li>
                 <li><a href="/blog/ycw2016.html">YC W2016 application</a></li>
-                <li><a href="/blog/muse-101.html">Muse overview</a></li>
+                <li><a href="/blog/muse-101.html">Golix overview</a></li>
                 <li><a href="/blog/status-2015-q3.html">Status report Q3 2015</a></li>
               </ul>
             </li>
@@ -257,7 +257,7 @@
                 <span class="sidebar-header sidebar-categories">Categories</span>
               </a>
               <ul class="sidebar-list-secondary" id="categories">
-                <li><a href="/blog/category/muse.html">Muse</a></li>
+                <li><a href="/blog/category/golix.html">Golix</a></li>
                 <li><a href="/blog/category/overview.html">Overview</a></li>
               </ul>
             </li>
@@ -267,11 +267,11 @@
                 <span class="sidebar-header sidebar-tags">Tags</span>
               </a>
               <ul class="sidebar-list-secondary" id="tags">
-                <li><a href="/blog/tag/ethyr.html">Ethyr</a></li>
-                <li><a href="/blog/tag/muterra.html">Muterra</a></li>
-                <li><a href="/blog/tag/technical.html">Technical</a></li>
-                <li><a href="/blog/tag/muse.html">Muse</a></li>
                 <li><a href="/blog/tag/implementation.html">Implementation</a></li>
+                <li><a href="/blog/tag/ethyr.html">Ethyr</a></li>
+                <li><a href="/blog/tag/golix.html">Golix</a></li>
+                <li><a href="/blog/tag/technical.html">Technical</a></li>
+                <li><a href="/blog/tag/muterra.html">Muterra</a></li>
               </ul>
             </li>
           </ul>
